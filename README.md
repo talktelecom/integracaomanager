@@ -1,2 +1,0 @@
-# integracaomanager
-Integração Epbx Manager
