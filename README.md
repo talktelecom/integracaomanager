@@ -166,6 +166,20 @@ window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnecti
     });
 ```
 
+
+## Integração com o Power
+
+#Procedure para reativar o cliente
+```sql
+Exec dbo.proc_reativa_cliente 
+ @Campanha    = '' -- Código da campanha
+,@CodCliente  = '' -- Código do cliente
+,@DDD         = '' -- DDD
+,@Telefone    = '' -- Número do telefone 
+,@Prioridade  =  0 -- 1 = Possui prioridade na discagem | 0 = Não possui prioridade
+```
+
+
 ## Duvidas
 
 *Enviar e-mail para desenvolvimento@ipcorp.com.br
