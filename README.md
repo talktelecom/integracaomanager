@@ -179,6 +179,32 @@ Exec dbo.proc_reativa_cliente
 ,@Prioridade  =  0 -- 1 = Possui prioridade na discagem | 0 = Não possui prioridade
 ```
 
+#Procedure para agendar o cliente
+```sql
+ Exec PowerC.dbo.proc_agenda_telefone
+ @Campanha   = 1,
+ @CodCliente = '123456',
+ @DDD        = 11,
+ @Telefone   = 21879021,
+ @DataHora   = '2017-07-26 16:45',
+ @Ramal      = 1009,
+ @iFlgInfoAdicional='info;joão;125.365.366-45'
+
+```
+
+#Procedure para inserir o cliente
+```sql
+exec PowerC.dbo.proc_agenda_telefone
+ @Campanha   = 1,
+ @CodCliente = '123456',
+ @DDD        = 11,
+ @Telefone   = 21879021,
+ @DataHora   = '2017-07-26 16:45',
+ @Ramal      = 1009,
+ @iFlgInfoAdicional='info;joão;125.365.366-45'
+
+```
+
 
 ## Duvidas
 
