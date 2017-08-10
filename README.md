@@ -194,7 +194,7 @@ Exec dbo.proc_reativa_cliente
 
 #Procedure para inserir o cliente
 ```sql
-exec PowerC.dbo.proc_agenda_telefone
+exec PowerC.dbo.proc_insere_telefone
  @Campanha   = 1,
  @CodCliente = '123456',
  @DDD        = 11,
