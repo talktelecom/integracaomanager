@@ -206,7 +206,7 @@ exec PowerC.dbo.proc_insere_telefone
 ```
 
 
-##Para importação de Mailing.
+## Para importação de Mailing.
 ```
 Use EpbxManager
 go
@@ -259,7 +259,7 @@ Go
 
 ```
 
-##Contato Negativo:
+## Contato Negativo:
 
 #Este processo é utilizado para invalidar um telefone que não pertence ao cliente (CPC) e continue a discar para os demais  telefones que o mesmo possuir.
 
@@ -271,7 +271,7 @@ ProcessaCampanhaReativaCliente
 ,@DDD =            ---DDD do telefone
 ```
 
-##Remover Cliente:
+## Remover Cliente:
 
 #Este processo é para Remover o cliente e seus telefones das campanhas 
 
@@ -283,7 +283,7 @@ ProcessaCampanhaRemoveCliente
       ,@Geral           = 1        ---1 para apagar de qualquer campanha ou 0 para determinar a campanha
 ```
 
-##Remover Telefone:
+## Remover Telefone:
 
 #Este processo é para Remover o telefone das campanhas, remover somente um determinado número de telefone
 
@@ -296,7 +296,7 @@ ProcessaCampanhaRemoveTelefone
       ,@Geral           = 0        ---1 para apagar de qualquer campanha ou 0 para determinar a campanha     
 ```
 
-##Limpar Campanha:
+## Limpar Campanha:
 
 #Este processo remove todos os cliente da campanha
 
@@ -313,7 +313,7 @@ LimparCampanha
 #Para consultar por status da discagem, Utilize o parâmetro @CampanhaDiscagemStatusId, “para trazer todos os status coloque 0 no campo”.
 
 
-##Exemplo
+## Exemplo
 
 ```
 GetCampanhaDiscagemRetorno
@@ -326,7 +326,7 @@ GetCampanhaDiscagemRetorno
 ,@BilheteId                   =     0
 ```
 
-##Retorno de ligações Manuais, receptivos.
+## Retorno de ligações Manuais, receptivos.
 
 #Para retornar ligações manuais e receptivas utilize 0 no parâmetro de campanha @CampanhaId = 0
 
@@ -359,7 +359,7 @@ GetCampanhaDiscagemRetorno
 ```
 
 
-#Retorno dos Tipos Telefones para mailing do discador.
+## Retorno dos Tipos Telefones para mailing do discador.
 
 ```
 GetCampanhaTelefoneTipo
@@ -368,7 +368,7 @@ GetCampanhaTelefoneTipo
 
  
 
-#Status e Campanha.
+## Status e Campanha.
 
 ```
 GetCampanhaStatus
@@ -376,7 +376,7 @@ GetCampanhaStatus
 ![alt text](https://github.com/talktelecom/integracaomanager/blob/master/imagens/GetCampanhaStatus.JPG)
 
 
-#Status das Ligações.
+## Status das Ligações.
 
 ```
 GetCampanhaDiscagemStatus
