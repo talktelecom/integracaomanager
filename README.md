@@ -206,9 +206,189 @@ exec PowerC.dbo.proc_insere_telefone
 ```
 
 
+## Para importação de Mailing.
+```
+Use EpbxManager
+go
+Exec SetCampanhaDiscagem
+@CampanhaId   = 12                                   ---Código de Campanha criado na criação da campanha
+,@CodigoCliente   = '123'                            ---Código do cliente em sua base para poder abrir a ficha do cliente
+,@Nome     = 'Teste'                                 ---Nome do cliente a ser discado
+,@DDD     = 11                                       ---DDD do cliente a ser discado
+,@Numero    = 34710035                               ---Número do telefone a ser discado
+,@Detalhe    = 'Info1, Info2, Info3, Info4, Info5'   ---Informações adicionais a disposição do CRM 
+,@RamalNumero   = Null                               -- Ou Número do Ramal para agendamento                “Número do ramal para agendamentos”
+,@DataAgendamento  = Null                            -- Ou data hora do agendamento            
+,@TelefoneTipo   = Null                              -- Ou Código do tipo de telefone, Para ordenar a ordem a ser discada. 
+Go
+
+```
+
+## Para importação em lote.
+
+```
+Declare @Registros CampanhaDiscagemLoteTableParam
+
+Insert Into @Registros
+(
+CodigoCliente
+,Nome
+,DDD
+,Numero
+,Detalhe
+,RamalId
+,RamalNumero
+,DataAgendamento
+)
+Select 
+       CodigoCliente   = '123'
+,Nome     = 'Teste'
+,DDD     = 11
+,Numero     = 23910000
+,Detalhe    = 'Info1, Info2, Info3, Info4, Info5'
+,RamalId    = Null
+,RamalNumero = NULL
+,DataAgendamento  = Null
+
+Exec SetCampanhaDiscagemLote
+       @CampanhaId   = 38
+,@UsuarioCadastro  = 1
+,@Registros    = @Registros
+
+Go
+
+```
+
+## Contato Negativo:
+
+# Este processo é utilizado para invalidar um telefone que não pertence ao cliente (CPC) e continue a discar para os demais  telefones que o mesmo possuir.
+
+```
+ProcessaCampanhaReativaCliente
+@CampanhaId =     ---Código da Campanha
+,@CodigoCliente =  ---Código de cliente
+,@Telefone =       ---Telefone a ser negativado
+,@DDD =            ---DDD do telefone
+```
+
+## Remover Cliente:
+
+# Este processo é para Remover o cliente e seus telefones das campanhas 
+
+```
+ProcessaCampanhaRemoveCliente
+      @CampanhaId      = 12        ---Código da Campanha – enviar 0 para remover de todas as campanhas
+      ,@CodigoCliente   = '1234'    ---Código de cliente 
+      ,@CPF             = null      ---CPF do cliente
+      ,@Geral           = 1        ---1 para apagar de qualquer campanha ou 0 para determinar a campanha
+```
+
+## Remover Telefone:
+
+# Este processo é para Remover o telefone das campanhas, remover somente um determinado número de telefone
+
+```
+ProcessaCampanhaRemoveTelefone
+      @CampanhaId      = 12        ---Código da Campanha – enviar 0 para remover de todas as campanhas
+      ,@CodigoCliente   = '1234'    ---Código de cliente 
+      ,@DDD             = 11        ---DDD do cliente   
+      ,@Telefone        =34710035   ---Telefone do cliente    
+      ,@Geral           = 0        ---1 para apagar de qualquer campanha ou 0 para determinar a campanha     
+```
+
+## Limpar Campanha:
+
+# Este processo remove todos os cliente da campanha
+
+```
+LimparCampanha
+      @CampanhaId                 = 12 ---Código da Campanha
+      ,@ManterAgendamento           = 0 ---0 para apagar até os agendamentos e 1 para não apagar os agendamentos
+```
+
+# Retorno das ligações.
+
+# Procedure para trazer retornos do discador, o parâmetro @CampanhaId deverá ser preenchido com a campanha desejada para o retorno.
+
+# Para consultar por status da discagem, Utilize o parâmetro @CampanhaDiscagemStatusId, “para trazer todos os status coloque 0 no campo”.
+
+
+## Exemplo
+
+```
+GetCampanhaDiscagemRetorno
+@CampanhaId       =     530
+,@DataInicio      =     '2018-01-01'
+,@DataTermino     =     '2018-02-01'
+,@LoteControle    =     Null
+,@CampanhaDiscagemStatusId   =     0
+,@BilheteStatusDetalheId     =     0
+,@BilheteId                   =     0
+```
+
+## Retorno de ligações Manuais, receptivos.
+
+# Para retornar ligações manuais e receptivas utilize 0 no parâmetro de campanha @CampanhaId = 0
+
+# Para trazer por status de discagem utilize o campo @BilheteStatusDetalheId 
+
+```
+GetBilheteStatusDetalhe
+```
+![alt text](https://github.com/talktelecom/integracaomanager/blob/master/imagens/GetBilheteStatusDetalhe.JPG)
+
+# Para trazer acima de um Id de ligação desejado utilize o parâmetro @BilheteId
+
+# Para diferenciar entre ligação manual e ligação receptiva utilize o parâmetro @DirecaoId ou deixe o campo com 0 para trazer os dois status.
+
+```
+GetBilheteDirecao
+```
+![alt text](https://github.com/talktelecom/integracaomanager/blob/master/imagens/GetBilheteDirecao.JPG)
+ 
+```
+GetCampanhaDiscagemRetorno
+@CampanhaId       =     0
+,@DataInicio      =     '2018-01-01'
+,@DataTermino     =     '2018-05-01'
+,@LoteControle    =     Null
+,@CampanhaDiscagemStatusId   =     0
+,@BilheteStatusDetalheId     =     0
+,@BilheteId             =     0
+,@DirecaoId             =     0
+```
+
+
+# Retorno dos Tipos Telefones para mailing do discador.
+
+```
+GetCampanhaTelefoneTipo
+```
+![alt text](https://github.com/talktelecom/integracaomanager/blob/master/imagens/GetCampanhaTelefoneTipo.JPG)
+
+ 
+
+# Status e Campanha.
+
+```
+GetCampanhaStatus
+```
+![alt text](https://github.com/talktelecom/integracaomanager/blob/master/imagens/GetCampanhaStatus.JPG)
+
+
+# Status das Ligações.
+
+```
+GetCampanhaDiscagemStatus
+```
+![alt text](https://github.com/talktelecom/integracaomanager/blob/master/imagens/GetCampanhaDiscagemStatus.JPG)
+
+
+
+
 ## Duvidas
 
-*Enviar e-mail para desenvolvimento@ipcorp.com.br
+*Enviar e-mail para ricardo.lopes@ipcorp.com.br e diego.lubini@ipcorp.com.br
 
 
 
