@@ -166,46 +166,6 @@ window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnecti
     });
 ```
 
-
-## Integração com o Power
-
-#Procedure para reativar o cliente
-```sql
-Exec dbo.proc_reativa_cliente 
- @Campanha    = '' -- Código da campanha
-,@CodCliente  = '' -- Código do cliente
-,@DDD         = '' -- DDD
-,@Telefone    = '' -- Número do telefone 
-,@Prioridade  =  0 -- 1 = Possui prioridade na discagem | 0 = Não possui prioridade
-```
-
-#Procedure para agendar o cliente
-```sql
- Exec PowerC.dbo.proc_agenda_telefone
- @Campanha   = 1,
- @CodCliente = '123456',
- @DDD        = 11,
- @Telefone   = 21879021,
- @DataHora   = '2017-07-26 16:45',
- @Ramal      = 1009,
- @iFlgInfoAdicional='info;joão;125.365.366-45'
-
-```
-
-#Procedure para inserir o cliente
-```sql
-exec PowerC.dbo.proc_insere_telefone
- @Campanha   = 1,
- @CodCliente = '123456',
- @DDD        = 11,
- @Telefone   = 21879021,
- @DataHora   = '2017-07-26 16:45',
- @Ramal      = 1009,
- @iFlgInfoAdicional='info;joão;125.365.366-45'
-
-```
-
-
 ## Para importação de Mailing.
 ```
 Use EpbxManager
