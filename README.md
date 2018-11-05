@@ -206,7 +206,7 @@ exec PowerC.dbo.proc_insere_telefone
 ```
 
 
-## Para importação de Mailing.
+##Para importação de Mailing.
 ```
 Use EpbxManager
 go
@@ -224,7 +224,7 @@ Go
 
 ```
 
-## Para importação em lote.
+##Para importação em lote.
 
 ```
 Declare @Registros CampanhaDiscagemLoteTableParam
@@ -259,9 +259,9 @@ Go
 
 ```
 
-## Contato Negativo:
+##Contato Negativo:
 
-# Este processo é utilizado para invalidar um telefone que não pertence ao cliente (CPC) e continue a discar para os demais  telefones que o mesmo possuir.
+#Este processo é utilizado para invalidar um telefone que não pertence ao cliente (CPC) e continue a discar para os demais  telefones que o mesmo possuir.
 
 ```
 ProcessaCampanhaReativaCliente
@@ -271,9 +271,9 @@ ProcessaCampanhaReativaCliente
 ,@DDD =            ---DDD do telefone
 ```
 
-## Remover Cliente:
+##Remover Cliente:
 
-# Este processo é para Remover o cliente e seus telefones das campanhas 
+#Este processo é para Remover o cliente e seus telefones das campanhas 
 
 ```
 ProcessaCampanhaRemoveCliente
@@ -283,9 +283,9 @@ ProcessaCampanhaRemoveCliente
       ,@Geral           = 1        ---1 para apagar de qualquer campanha ou 0 para determinar a campanha
 ```
 
-## Remover Telefone:
+##Remover Telefone:
 
-# Este processo é para Remover o telefone das campanhas, remover somente um determinado número de telefone
+#Este processo é para Remover o telefone das campanhas, remover somente um determinado número de telefone
 
 ```
 ProcessaCampanhaRemoveTelefone
@@ -296,9 +296,9 @@ ProcessaCampanhaRemoveTelefone
       ,@Geral           = 0        ---1 para apagar de qualquer campanha ou 0 para determinar a campanha     
 ```
 
-## Limpar Campanha:
+##Limpar Campanha:
 
-# Este processo remove todos os cliente da campanha
+#Este processo remove todos os cliente da campanha
 
 ```
 LimparCampanha
@@ -306,14 +306,14 @@ LimparCampanha
       ,@ManterAgendamento           = 0 ---0 para apagar até os agendamentos e 1 para não apagar os agendamentos
 ```
 
-# Retorno das ligações.
+#Retorno das ligações.
 
-# Procedure para trazer retornos do discador, o parâmetro @CampanhaId deverá ser preenchido com a campanha desejada para o retorno.
+#Procedure para trazer retornos do discador, o parâmetro @CampanhaId deverá ser preenchido com a campanha desejada para o retorno.
 
-# Para consultar por status da discagem, Utilize o parâmetro @CampanhaDiscagemStatusId, “para trazer todos os status coloque 0 no campo”.
+#Para consultar por status da discagem, Utilize o parâmetro @CampanhaDiscagemStatusId, “para trazer todos os status coloque 0 no campo”.
 
 
-## Exemplo
+##Exemplo
 
 ```
 GetCampanhaDiscagemRetorno
@@ -326,20 +326,20 @@ GetCampanhaDiscagemRetorno
 ,@BilheteId                   =     0
 ```
 
-## Retorno de ligações Manuais, receptivos.
+##Retorno de ligações Manuais, receptivos.
 
-# Para retornar ligações manuais e receptivas utilize 0 no parâmetro de campanha @CampanhaId = 0
+#Para retornar ligações manuais e receptivas utilize 0 no parâmetro de campanha @CampanhaId = 0
 
-# Para trazer por status de discagem utilize o campo @BilheteStatusDetalheId 
+#Para trazer por status de discagem utilize o campo @BilheteStatusDetalheId 
 
 ```
 GetBilheteStatusDetalhe
 ```
 ![alt text](https://github.com/talktelecom/integracaomanager/blob/master/imagens/GetBilheteStatusDetalhe.JPG)
 
-# Para trazer acima de um Id de ligação desejado utilize o parâmetro @BilheteId
+#Para trazer acima de um Id de ligação desejado utilize o parâmetro @BilheteId
 
-# Para diferenciar entre ligação manual e ligação receptiva utilize o parâmetro @DirecaoId ou deixe o campo com 0 para trazer os dois status.
+#Para diferenciar entre ligação manual e ligação receptiva utilize o parâmetro @DirecaoId ou deixe o campo com 0 para trazer os dois status.
 
 ```
 GetBilheteDirecao
@@ -359,7 +359,7 @@ GetCampanhaDiscagemRetorno
 ```
 
 
-# Retorno dos Tipos Telefones para mailing do discador.
+#Retorno dos Tipos Telefones para mailing do discador.
 
 ```
 GetCampanhaTelefoneTipo
@@ -368,7 +368,7 @@ GetCampanhaTelefoneTipo
 
  
 
-# Status e Campanha.
+#Status e Campanha.
 
 ```
 GetCampanhaStatus
@@ -376,7 +376,7 @@ GetCampanhaStatus
 ![alt text](https://github.com/talktelecom/integracaomanager/blob/master/imagens/GetCampanhaStatus.JPG)
 
 
-# Status das Ligações.
+#Status das Ligações.
 
 ```
 GetCampanhaDiscagemStatus
@@ -386,7 +386,7 @@ GetCampanhaDiscagemStatus
 
 
 
-## Duvidas
+##Duvidas
 
 *Enviar e-mail para ricardo.lopes@ipcorp.com.br e diego.lubini@ipcorp.com.br
 
