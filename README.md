@@ -266,7 +266,7 @@ LimparCampanha
       ,@ManterAgendamento           = 0 ---0 para apagar até os agendamentos e 1 para não apagar os agendamentos
 ```
 
-#Retorno das ligações.
+## Retorno das ligações.
 
 #Procedure para trazer retornos do discador, o parâmetro @CampanhaId deverá ser preenchido com a campanha desejada para o retorno.
 
