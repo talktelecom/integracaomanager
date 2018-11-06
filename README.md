@@ -191,7 +191,7 @@ Declare @Registros CampanhaDiscagemLoteTableParam
 
 Insert Into @Registros
 (
-CodigoCliente
+ CodigoCliente
 ,Nome
 ,DDD
 ,Numero
@@ -199,9 +199,10 @@ CodigoCliente
 ,RamalId
 ,RamalNumero
 ,DataAgendamento
+,TelefoneTipo
 )
 Select 
-       CodigoCliente   = '123'
+ CodigoCliente   = '123'
 ,Nome     = 'Teste'
 ,DDD     = 11
 ,Numero     = 23910000
@@ -209,9 +210,10 @@ Select
 ,RamalId    = Null
 ,RamalNumero = NULL
 ,DataAgendamento  = Null
+,TelefoneTipo = '1'
 
 Exec SetCampanhaDiscagemLote
-       @CampanhaId   = 38
+ @CampanhaId   = 38
 ,@UsuarioCadastro  = 1
 ,@Registros    = @Registros
 
