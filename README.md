@@ -346,7 +346,93 @@ GetCampanhaDiscagemStatus
 ![alt text](https://github.com/talktelecom/integracaomanager/blob/master/imagens/GetCampanhaDiscagemStatus.JPG)
 
 
+## Exclui um numero de Telefone de Todas as Campanhas (Independentemente do Codigo Cliente, CPF e etc)
+```
+Use EpbxManager
+Go
 
+Declare @Registros CampanhaDiscagemRemoveLoteTableParam
+
+Insert Into @Registros
+(
+	CampanhaId			
+	,CodigoCliente		
+	,CpfCnpj			
+	,DDD				
+	,Numero				
+	,NumeroDDD			
+)
+Select 
+	CampanhaId = NULL
+	,CodigoCliente = NULL
+	,CpfCnpj = NULL
+	,DDD = 11
+	,Numero = 23910000
+	,NumeroDDD = NULL
+
+Exec DeleteCampanhaDiscagemLote
+	@CampanhaId = NULL
+	,@Registros = @Registros
+
+Go
+
+```
+
+
+## Exclui um Codigo de Clientede Todas as Campanhas (Independentemente do Telefone, CPF e etc)
+```
+Declare @Registros CampanhaDiscagemRemoveLoteTableParam
+
+Insert Into @Registros
+(
+	CampanhaId			
+	,CodigoCliente		
+	,CpfCnpj			
+	,DDD				
+	,Numero				
+	,NumeroDDD			
+)
+Select 
+	CampanhaId = NULL
+	,CodigoCliente = '123'
+	,CpfCnpj = NULL
+	,DDD = NULL
+	,Numero = NULL
+	,NumeroDDD = NULL
+
+Exec DeleteCampanhaDiscagemLote
+	@CampanhaId = NULL
+	,@Registros = @Registros
+Go
+```
+
+
+## Exclui um Codigo de Cliente de uma Campanha Especifica (Independentemente do Telefone, CPF e etc)
+```
+Declare @Registros CampanhaDiscagemRemoveLoteTableParam
+
+Insert Into @Registros
+(
+	CampanhaId			
+	,CodigoCliente		
+	,CpfCnpj			
+	,DDD				
+	,Numero				
+	,NumeroDDD			
+)
+Select 
+	CampanhaId = 35
+	,CodigoCliente = '123'
+	,CpfCnpj = NULL
+	,DDD = NULL
+	,Numero = NULL
+	,NumeroDDD = NULL
+
+Exec DeleteCampanhaDiscagemLote
+	@CampanhaId = NULL
+	,@Registros = @Registros
+Go
+```
 
 ##Duvidas
 
