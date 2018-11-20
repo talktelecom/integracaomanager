@@ -171,15 +171,15 @@ window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnecti
 Use EpbxManager
 go
 Exec SetCampanhaDiscagem
-@CampanhaId   = 12                                   ---Código de Campanha criado na criação da campanha
-,@CodigoCliente   = '123'                            ---Código do cliente em sua base para poder abrir a ficha do cliente
-,@Nome     = 'Teste'                                 ---Nome do cliente a ser discado
-,@DDD     = 11                                       ---DDD do cliente a ser discado
-,@Numero    = 34710035                               ---Número do telefone a ser discado
-,@Detalhe    = 'Info1, Info2, Info3, Info4, Info5'   ---Informações adicionais a disposição do CRM 
-,@RamalNumero   = Null                               -- Ou Número do Ramal para agendamento                “Número do ramal para agendamentos”
-,@DataAgendamento  = Null                            -- Ou data hora do agendamento            
-,@TelefoneTipo   = Null                              -- Ou Código do tipo de telefone, Para ordenar a ordem a ser discada. 
+	@CampanhaId   = 12                                   ---Código de Campanha criado na criação da campanha
+	,@CodigoCliente   = '123'                            ---Código do cliente em sua base para poder abrir a ficha do cliente
+	,@Nome     = 'Teste'                                 ---Nome do cliente a ser discado
+	,@DDD     = 11                                       ---DDD do cliente a ser discado
+	,@Numero    = 34710035                               ---Número do telefone a ser discado
+	,@Detalhe    = 'Info1, Info2, Info3, Info4, Info5'   ---Informações adicionais a disposição do CRM 
+	,@RamalNumero   = Null                               -- Ou Número do Ramal para agendamento                “Número do ramal para agendamentos”
+	,@DataAgendamento  = Null                            -- Ou data hora do agendamento            
+	,@TelefoneTipo   = Null                              -- Ou Código do tipo de telefone, Para ordenar a ordem a ser discada. 
 Go
 
 ```
@@ -191,31 +191,31 @@ Declare @Registros CampanhaDiscagemLoteTableParam
 
 Insert Into @Registros
 (
- CodigoCliente
-,Nome
-,DDD
-,Numero
-,Detalhe
-,RamalId
-,RamalNumero
-,DataAgendamento
-,TelefoneTipo
+	 CodigoCliente
+	,Nome
+	,DDD
+	,Numero
+	,Detalhe
+	,RamalId
+	,RamalNumero
+	,DataAgendamento
+	,TelefoneTipo
 )
 Select 
- CodigoCliente   = '123'
-,Nome     = 'Teste'
-,DDD     = 11
-,Numero     = 23910000
-,Detalhe    = 'Info1, Info2, Info3, Info4, Info5'
-,RamalId    = Null
-,RamalNumero = NULL
-,DataAgendamento  = Null
-,TelefoneTipo = '1'
+	 CodigoCliente   = '123'
+	,Nome     = 'Teste'
+	,DDD     = 11
+	,Numero     = 23910000
+	,Detalhe    = 'Info1, Info2, Info3, Info4, Info5'
+	,RamalId    = Null
+	,RamalNumero = NULL
+	,DataAgendamento  = Null
+	,TelefoneTipo = '1'
 
 Exec SetCampanhaDiscagemLote
- @CampanhaId   = 38
-,@UsuarioCadastro  = 1
-,@Registros    = @Registros
+	 @CampanhaId   = 38
+	,@UsuarioCadastro  = 1
+	,@Registros    = @Registros
 
 Go
 
@@ -227,10 +227,10 @@ Go
 
 ```
 ProcessaCampanhaReativaCliente
-@CampanhaId =     ---Código da Campanha
-,@CodigoCliente =  ---Código de cliente
-,@Telefone =       ---Telefone a ser negativado
-,@DDD =            ---DDD do telefone
+	@CampanhaId =     ---Código da Campanha
+	,@CodigoCliente =  ---Código de cliente
+	,@Telefone =       ---Telefone a ser negativado
+	,@DDD =            ---DDD do telefone
 ```
 
 ## Remover Cliente:
@@ -279,13 +279,13 @@ LimparCampanha
 
 ```
 GetCampanhaDiscagemRetorno
-@CampanhaId       =     530
-,@DataInicio      =     '2018-01-01'
-,@DataTermino     =     '2018-02-01'
-,@LoteControle    =     Null
-,@CampanhaDiscagemStatusId   =     0
-,@BilheteStatusDetalheId     =     0
-,@BilheteId                   =     0
+	@CampanhaId       =     530
+	,@DataInicio      =     '2018-01-01'
+	,@DataTermino     =     '2018-02-01'
+	,@LoteControle    =     Null
+	,@CampanhaDiscagemStatusId   =     0
+	,@BilheteStatusDetalheId     =     0
+	,@BilheteId                   =     0
 ```
 
 ## Retorno de ligações Manuais, receptivos.
@@ -310,14 +310,14 @@ GetBilheteDirecao
  
 ```
 GetCampanhaDiscagemRetorno
-@CampanhaId       =     0
-,@DataInicio      =     '2018-01-01'
-,@DataTermino     =     '2018-05-01'
-,@LoteControle    =     Null
-,@CampanhaDiscagemStatusId   =     0
-,@BilheteStatusDetalheId     =     0
-,@BilheteId             =     0
-,@DirecaoId             =     0
+	@CampanhaId       =     0
+	,@DataInicio      =     '2018-01-01'
+	,@DataTermino     =     '2018-05-01'
+	,@LoteControle    =     Null
+	,@CampanhaDiscagemStatusId   =     0
+	,@BilheteStatusDetalheId     =     0
+	,@BilheteId             =     0
+	,@DirecaoId             =     0
 ```
 
 
