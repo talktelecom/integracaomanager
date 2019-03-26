@@ -125,6 +125,46 @@ window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnecti
   });
 ```
 
+## Função callback para receber o evento da ligação antes do cliente atender a chamada
+```javascript
+   windowHandler.on(events.onChamada, function (event, ramal, chamada) {
+      
+	var texto = '';
+        
+		// chamada ura_callback
+		if(chamada.InfoAdicional1 == "URA_CALLBACK"){
+		   atualizaStatus("Recebendo chamada Ura Callback");
+           texto = "TelefoneCliente: " + chamada.Telefone;
+           chamadaReceptiva(chamada.Telefone);	
+		}		
+		// se for chamada do discador, o objeto de chamada possuira mais dados
+        else if (chamada.CodigoCampanha) {
+            atualizaStatus("Recebendo chamada ativa");
+            texto = "CodigoCliente: " + chamada.CodigoCliente + " | " +
+                    "NomeCliente: " + chamada.NomeCliente + " | " +
+                    "CodigoCampanha: " + chamada.CodigoCampanha + " | " +
+                    "TelefoneCliente: " + chamada.TelefoneCliente + " | " +
+                    "InfoAdicional1: " + chamada.InfoAdicional1 + " | " +
+                    "InfoAdicional2: " + chamada.InfoAdicional2 + " | " +
+                    "InfoAdicional3: " + chamada.InfoAdicional3 + " | " +
+                    "InfoAdicional4: " + chamada.InfoAdicional4 + " | " +
+                    "InfoAdicional5: " + chamada.InfoAdicional5;
+            chamadaAtiva(chamada.CodigoCliente, chamada.Telefone);
+        } else if (chamada.Direcao == 2)
+        {
+            atualizaStatus("Recebendo chamada receptiva");
+            texto = "TelefoneCliente: " + chamada.Telefone + " | " +
+                    "DDR Local: " + chamada.DDRLocal;
+            chamadaReceptiva(chamada.Telefone);
+        }
+        if (texto != '')
+        {
+            atualizaStatus(texto);
+        }        
+    });
+```
+
+
 ## Função callback para receber o evento de chamada atendida
 ```javascript
    windowHandler.on(events.onAtendido, function (event, ramal, chamada) {
