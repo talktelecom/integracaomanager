@@ -224,5 +224,96 @@ $(function() {
   //        console.log(atendimentoHubProxy.server[key])
   //    }
   //})();
+  
+    epbxManagerClient.Agendamento = function(obj, callbackSucesso, callbackError) {
+        
+	    var data =    {
+                 Campanha : obj.CampanhaId,
+                 CodCliente :obj.CodCliente,
+				 DDD : obj.DDD,
+				 Telefone :obj.Telefone,
+				 DataHora :obj.DataHora,
+				 Ramal:obj.Ramal,
+				 NomeCliente:obj.NomeCliente
+       };
+	  
+        $.ajax({
+          type: "POST",
+          url: this.urlApi+'/Api/Atendimento/Agendamento',
+          data:  JSON.stringify(data),
+          headers: {
+             Authorization: 'ApiKey ' + this.apiKey       
+          },
+          dataType: "json",
+          contentType: "application/json; charset=utf-8",
+          success: callbackSucesso,
+          error: callbackError
+       });
+    };
 
+    epbxManagerClient.CaixaPostal = function(obj, callbackSucesso, callbackError) {
+        
+        var data =    {
+                     Campanha : obj.CampanhaId,
+                     CodCliente :obj.CodCliente,
+                     DDD : obj.DDD,
+                     Telefone :obj.Telefone,
+                     DtHoraPrioridade :obj.DataHora,
+                     Ramal:obj.Ramal,
+                     NomeCliente:obj.NomeCliente
+        };
+          
+        $.ajax({
+            type: "POST",
+            url: this.urlApi+'/Api/Atendimento/CaixaPostal',
+            data:  JSON.stringify(data),
+            headers: {
+                Authorization: 'ApiKey ' + this.apiKey       
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: callbackSucesso,
+            error: callbackError
+        });
+    };
+
+    epbxManagerClient.ContatoNegativo = function(obj, callbackSucesso, callbackError) {
+        
+        var data =    {
+                     Campanha : obj.CampanhaId,
+                     CodCliente :obj.CodCliente,
+                     DDD : obj.DDD,
+                     Telefone :obj.Telefone,
+                     Prioridade :obj.Prioridade
+        };
+          
+        $.ajax({
+            type: "POST",
+            url: this.urlApi+'/Api/Atendimento/ContatoNegativo',
+            data:  JSON.stringify(data),
+            headers: {
+                Authorization: 'ApiKey ' + this.apiKey       
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: callbackSucesso,
+            error: callbackError
+        });
+    };
+    
+	epbxManagerClient.ImportacaoLote = function(campanhaId, lista, callbackSucesso, callbackError) {
+                  
+        $.ajax({
+            type: "POST",
+            url: this.urlApi+'/Api/CampanhaDiscagem/Lote?campanhaId=' + campanhaId,
+            data:  JSON.stringify(lista),
+            headers: {
+                Authorization: 'ApiKey ' + this.apiKey       
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: callbackSucesso,
+            error: callbackError
+        });
+    };
 });
