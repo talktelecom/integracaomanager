@@ -239,10 +239,10 @@ $(function() {
 	  
         $.ajax({
           type: "POST",
-          url: this.urlApi+'/Api/Atendimento/Agendamento',
+          url: urlWebApi+'/Atendimento/Agendamento',
           data:  JSON.stringify(data),
           headers: {
-             Authorization: 'ApiKey ' + this.apiKey       
+             Authorization: 'bearer ' + getAccessToken()      
           },
           dataType: "json",
           contentType: "application/json; charset=utf-8",
@@ -265,10 +265,10 @@ $(function() {
           
         $.ajax({
             type: "POST",
-            url: this.urlApi+'/Api/Atendimento/CaixaPostal',
+            url: urlWebApi+'/Atendimento/CaixaPostal',
             data:  JSON.stringify(data),
             headers: {
-                Authorization: 'ApiKey ' + this.apiKey       
+                Authorization: 'bearer ' + getAccessToken()    
             },
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -289,10 +289,10 @@ $(function() {
           
         $.ajax({
             type: "POST",
-            url: this.urlApi+'/Api/Atendimento/ContatoNegativo',
+            url: urlWebApi+'/Atendimento/ContatoNegativo',
             data:  JSON.stringify(data),
             headers: {
-                Authorization: 'ApiKey ' + this.apiKey       
+                Authorization: 'bearer ' + getAccessToken()   
             },
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -305,10 +305,10 @@ $(function() {
                   
         $.ajax({
             type: "POST",
-            url: this.urlApi+'/Api/CampanhaDiscagem/Lote?campanhaId=' + campanhaId,
+            url: urlWebApi+'/CampanhaDiscagem/Lote?campanhaId=' + campanhaId,
             data:  JSON.stringify(lista),
             headers: {
-                Authorization: 'ApiKey ' + this.apiKey       
+                Authorization: 'bearer ' + getAccessToken()         
             },
             dataType: "json",
             contentType: "application/json; charset=utf-8",
