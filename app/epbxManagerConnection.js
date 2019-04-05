@@ -239,7 +239,7 @@ $(function() {
 	  
         $.ajax({
           type: "POST",
-          url: urlWebApi+'/Atendimento/Agendamento',
+          url: urlWebApi+'Atendimento/Agendamento',
           data:  JSON.stringify(data),
           headers: {
              Authorization: 'bearer ' + getAccessToken()      
@@ -265,7 +265,7 @@ $(function() {
           
         $.ajax({
             type: "POST",
-            url: urlWebApi+'/Atendimento/CaixaPostal',
+            url: urlWebApi+'Atendimento/CaixaPostal',
             data:  JSON.stringify(data),
             headers: {
                 Authorization: 'bearer ' + getAccessToken()    
@@ -289,7 +289,7 @@ $(function() {
           
         $.ajax({
             type: "POST",
-            url: urlWebApi+'/Atendimento/ContatoNegativo',
+            url: urlWebApi+'Atendimento/ContatoNegativo',
             data:  JSON.stringify(data),
             headers: {
                 Authorization: 'bearer ' + getAccessToken()   
@@ -305,7 +305,7 @@ $(function() {
                   
         $.ajax({
             type: "POST",
-            url: urlWebApi+'/CampanhaDiscagem/Lote?campanhaId=' + campanhaId,
+            url: urlWebApi+'CampanhaDiscagem/Lote?campanhaId=' + campanhaId,
             data:  JSON.stringify(lista),
             headers: {
                 Authorization: 'bearer ' + getAccessToken()         
