@@ -242,9 +242,8 @@ $(function() {
           url: urlWebApi+'Atendimento/Agendamento',
           data:  JSON.stringify(data),
           headers: {
-             Authorization: 'bearer ' + getAccessToken()      
+             Authorization: 'Bearer ' + getAccessToken()      
           },
-          dataType: "json",
           contentType: "application/json; charset=utf-8",
           success: callbackSucesso,
           error: callbackError
@@ -268,9 +267,8 @@ $(function() {
             url: urlWebApi+'Atendimento/CaixaPostal',
             data:  JSON.stringify(data),
             headers: {
-                Authorization: 'bearer ' + getAccessToken()    
+                Authorization: 'Bearer ' + getAccessToken()    
             },
-            dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: callbackSucesso,
             error: callbackError
@@ -292,9 +290,8 @@ $(function() {
             url: urlWebApi+'Atendimento/ContatoNegativo',
             data:  JSON.stringify(data),
             headers: {
-                Authorization: 'bearer ' + getAccessToken()   
+                Authorization: 'Bearer ' + getAccessToken()   
             },
-            dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: callbackSucesso,
             error: callbackError
@@ -308,9 +305,8 @@ $(function() {
             url: urlWebApi+'CampanhaDiscagem/Lote?campanhaId=' + campanhaId,
             data:  JSON.stringify(lista),
             headers: {
-                Authorization: 'bearer ' + getAccessToken()         
+                Authorization: 'Bearer ' + getAccessToken()         
             },
-            dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: callbackSucesso,
             error: callbackError
