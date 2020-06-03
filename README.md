@@ -470,9 +470,7 @@ Exec DeleteCampanhaDiscagemLote
 Go
 ```
 
-##Duvidas
 
-*Enviar e-mail para ricardo.lopes@ipcorp.com.br e diego.lubini@ipcorp.com.br
 
 
 
