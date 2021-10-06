@@ -202,7 +202,99 @@ Para utilizar a api de integração você precisa fazer a referência do java sc
     });
 ```
 
-## Para importação de Mailing.
+
+
+## Importar Mailing Lote
+```javascript
+curl --location --request POST 'http://integracao.epbx.com.br/Service/Api/CampanhaDiscagem/Lote?campanhaId=38' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer vAcyElQYZdRo0CSmb8ksNbo4YNI939h7B8JrS-QvtI51fARvNNspRrqfWhIJ87FBz3c2LvJcjnnehKcNs7QT2shUabIUqlCrC-ltejuAguC3fOerO5KYyhR6SIdw8sza95BE4YXNeiZ2sRitMnDIH_0cnP7-kfXSpVAo5KkxOfQ2BIBmsqYV8HBZ4-uHVKMvmm7pnj249bc__QDVtfkyfIcawGip0tI7xOE534nFZg5MrXVL-Y-VXIVfmR6hw1ggBzxnXZOLbaVh2_wrIjPWLMpxyUfIG9u5PnarFP2A0JD9SBizacx_5IOCXHq2Q7F6tpXKDhJD79sqvoDm20APkuImcpvLtKetSxpA7fluRmMJiHSv_AmVT5oHVDLMeNIQgBxxnPi15V08xpGafcGTSq4LaTp1wOKoP1MbEbv8t4I' \
+--header 'Cookie: OAuthEpbxManagerLocalCookie=UPWp8mh2B2OZa1D46tz5C-s_ymuUvGM28eOj-BLqnrOE-OcS-LYI5NpkN0ZTMo31GmL5jcqnrBs2A14Ap1dmUtAHbVqAMzkBEquCT6DqqslZTyspkryGxtf1xD5lz6mGX7ZZ3RgJ4bMUTFLibFhGdEgnlgyJdz1GXEHw4m7EJRLYjYnfx42ofdlrmycbLqKdaWkTdMKdSxhSKgDcDy71501DqTq_pHzPD6sx8t8QgdqwzHJ0e36bhPfZ-CyT22-yF9_9hjtpizNY71ZMAxQ7wAszsvaLv01XrFInzCgVX1lGeSVvB5bM7zAASc1T74hrbKDEbAre3Hn_AnXFcrYa2xs0zCpgnVZuPMPRbcldM1__6J5DD9R6XofmbcexZOs3lK6l8dYd4MjzBkAX9KbmlYmwm9uiNtwoT6XDnfiAikA' \
+--data-raw '[
+  {
+    "CodigoCliente": "213456",
+    "Nome": "Talk Telecom",
+    "DDD": "11",
+    "Numero": "23910000",
+    "Detalhe": "Info1,Info2,Info3"
+  }
+]'
+```
+ 
+## Agendamento
+```javascript
+curl --location --request POST 'http://integracao.epbx.com.br/Service/Api/Atendimento/Agendamento' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer vAcyElQYZdRo0CSmb8ksNbo4YNI939h7B8JrS-QvtI51fARvNNspRrqfWhIJ87FBz3c2LvJcjnnehKcNs7QT2shUabIUqlCrC-ltejuAguC3fOerO5KYyhR6SIdw8sza95BE4YXNeiZ2sRitMnDIH_0cnP7-kfXSpVAo5KkxOfQ2BIBmsqYV8HBZ4-uHVKMvmm7pnj249bc__QDVtfkyfIcawGip0tI7xOE534nFZg5MrXVL-Y-VXIVfmR6hw1ggBzxnXZOLbaVh2_wrIjPWLMpxyUfIG9u5PnarFP2A0JD9SBizacx_5IOCXHq2Q7F6tpXKDhJD79sqvoDm20APkuImcpvLtKetSxpA7fluRmMJiHSv_AmVT5oHVDLMeNIQgBxxnPi15V08xpGafcGTSq4LaTp1wOKoP1MbEbv8t4I' \
+--header 'Cookie: OAuthEpbxManagerLocalCookie=UPWp8mh2B2OZa1D46tz5C-s_ymuUvGM28eOj-BLqnrOE-OcS-LYI5NpkN0ZTMo31GmL5jcqnrBs2A14Ap1dmUtAHbVqAMzkBEquCT6DqqslZTyspkryGxtf1xD5lz6mGX7ZZ3RgJ4bMUTFLibFhGdEgnlgyJdz1GXEHw4m7EJRLYjYnfx42ofdlrmycbLqKdaWkTdMKdSxhSKgDcDy71501DqTq_pHzPD6sx8t8QgdqwzHJ0e36bhPfZ-CyT22-yF9_9hjtpizNY71ZMAxQ7wAszsvaLv01XrFInzCgVX1lGeSVvB5bM7zAASc1T74hrbKDEbAre3Hn_AnXFcrYa2xs0zCpgnVZuPMPRbcldM1__6J5DD9R6XofmbcexZOs3lK6l8dYd4MjzBkAX9KbmlYmwm9uiNtwoT6XDnfiAikA' \
+--data-raw '{
+    "Campanha": "578",
+    "CodCliente": "123456",
+    "DDD": "11",
+    "Telefone": "997422080",
+    "DataHora": "2018-04-03T13:35:00",
+    "Ramal": 1009,
+    "NomeCliente": "Wagner"
+}'
+```
+
+## Contato Negativo
+```javascript
+curl --location --request POST 'http://integracao.epbx.com.br/Service/Api/Atendimento/ContatoNegativo' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer vAcyElQYZdRo0CSmb8ksNbo4YNI939h7B8JrS-QvtI51fARvNNspRrqfWhIJ87FBz3c2LvJcjnnehKcNs7QT2shUabIUqlCrC-ltejuAguC3fOerO5KYyhR6SIdw8sza95BE4YXNeiZ2sRitMnDIH_0cnP7-kfXSpVAo5KkxOfQ2BIBmsqYV8HBZ4-uHVKMvmm7pnj249bc__QDVtfkyfIcawGip0tI7xOE534nFZg5MrXVL-Y-VXIVfmR6hw1ggBzxnXZOLbaVh2_wrIjPWLMpxyUfIG9u5PnarFP2A0JD9SBizacx_5IOCXHq2Q7F6tpXKDhJD79sqvoDm20APkuImcpvLtKetSxpA7fluRmMJiHSv_AmVT5oHVDLMeNIQgBxxnPi15V08xpGafcGTSq4LaTp1wOKoP1MbEbv8t4I' \
+--header 'Cookie: OAuthEpbxManagerLocalCookie=UPWp8mh2B2OZa1D46tz5C-s_ymuUvGM28eOj-BLqnrOE-OcS-LYI5NpkN0ZTMo31GmL5jcqnrBs2A14Ap1dmUtAHbVqAMzkBEquCT6DqqslZTyspkryGxtf1xD5lz6mGX7ZZ3RgJ4bMUTFLibFhGdEgnlgyJdz1GXEHw4m7EJRLYjYnfx42ofdlrmycbLqKdaWkTdMKdSxhSKgDcDy71501DqTq_pHzPD6sx8t8QgdqwzHJ0e36bhPfZ-CyT22-yF9_9hjtpizNY71ZMAxQ7wAszsvaLv01XrFInzCgVX1lGeSVvB5bM7zAASc1T74hrbKDEbAre3Hn_AnXFcrYa2xs0zCpgnVZuPMPRbcldM1__6J5DD9R6XofmbcexZOs3lK6l8dYd4MjzBkAX9KbmlYmwm9uiNtwoT6XDnfiAikA' \
+--data-raw '{
+    "Campanha": "3230",
+    "CodCliente": "123456",
+    "DDD": "11",
+    "Telefone": "997422080",
+    "Prioridade":""
+}'
+```
+
+
+## Remove Cliente
+```javascript
+curl --location --request POST 'http://integracao.epbx.com.br/Service/Api/Atendimento/RemoveCliente' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer vAcyElQYZdRo0CSmb8ksNbo4YNI939h7B8JrS-QvtI51fARvNNspRrqfWhIJ87FBz3c2LvJcjnnehKcNs7QT2shUabIUqlCrC-ltejuAguC3fOerO5KYyhR6SIdw8sza95BE4YXNeiZ2sRitMnDIH_0cnP7-kfXSpVAo5KkxOfQ2BIBmsqYV8HBZ4-uHVKMvmm7pnj249bc__QDVtfkyfIcawGip0tI7xOE534nFZg5MrXVL-Y-VXIVfmR6hw1ggBzxnXZOLbaVh2_wrIjPWLMpxyUfIG9u5PnarFP2A0JD9SBizacx_5IOCXHq2Q7F6tpXKDhJD79sqvoDm20APkuImcpvLtKetSxpA7fluRmMJiHSv_AmVT5oHVDLMeNIQgBxxnPi15V08xpGafcGTSq4LaTp1wOKoP1MbEbv8t4I' \
+--header 'Cookie: OAuthEpbxManagerLocalCookie=UPWp8mh2B2OZa1D46tz5C-s_ymuUvGM28eOj-BLqnrOE-OcS-LYI5NpkN0ZTMo31GmL5jcqnrBs2A14Ap1dmUtAHbVqAMzkBEquCT6DqqslZTyspkryGxtf1xD5lz6mGX7ZZ3RgJ4bMUTFLibFhGdEgnlgyJdz1GXEHw4m7EJRLYjYnfx42ofdlrmycbLqKdaWkTdMKdSxhSKgDcDy71501DqTq_pHzPD6sx8t8QgdqwzHJ0e36bhPfZ-CyT22-yF9_9hjtpizNY71ZMAxQ7wAszsvaLv01XrFInzCgVX1lGeSVvB5bM7zAASc1T74hrbKDEbAre3Hn_AnXFcrYa2xs0zCpgnVZuPMPRbcldM1__6J5DD9R6XofmbcexZOs3lK6l8dYd4MjzBkAX9KbmlYmwm9uiNtwoT6XDnfiAikA' \
+--data-raw '{
+    "Campanha": "168",
+    "CodCliente": "1234",
+    "Geral": "1"
+}'
+```
+
+## Dupplicar Campanha
+```javascript
+curl --location --request POST 'http://integracao.epbx.com.br/Service/Api/Campanha/Duplicar?CampanhaId=704' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer vAcyElQYZdRo0CSmb8ksNbo4YNI939h7B8JrS-QvtI51fARvNNspRrqfWhIJ87FBz3c2LvJcjnnehKcNs7QT2shUabIUqlCrC-ltejuAguC3fOerO5KYyhR6SIdw8sza95BE4YXNeiZ2sRitMnDIH_0cnP7-kfXSpVAo5KkxOfQ2BIBmsqYV8HBZ4-uHVKMvmm7pnj249bc__QDVtfkyfIcawGip0tI7xOE534nFZg5MrXVL-Y-VXIVfmR6hw1ggBzxnXZOLbaVh2_wrIjPWLMpxyUfIG9u5PnarFP2A0JD9SBizacx_5IOCXHq2Q7F6tpXKDhJD79sqvoDm20APkuImcpvLtKetSxpA7fluRmMJiHSv_AmVT5oHVDLMeNIQgBxxnPi15V08xpGafcGTSq4LaTp1wOKoP1MbEbv8t4I' \
+--header 'Cookie: OAuthEpbxManagerLocalCookie=UPWp8mh2B2OZa1D46tz5C-s_ymuUvGM28eOj-BLqnrOE-OcS-LYI5NpkN0ZTMo31GmL5jcqnrBs2A14Ap1dmUtAHbVqAMzkBEquCT6DqqslZTyspkryGxtf1xD5lz6mGX7ZZ3RgJ4bMUTFLibFhGdEgnlgyJdz1GXEHw4m7EJRLYjYnfx42ofdlrmycbLqKdaWkTdMKdSxhSKgDcDy71501DqTq_pHzPD6sx8t8QgdqwzHJ0e36bhPfZ-CyT22-yF9_9hjtpizNY71ZMAxQ7wAszsvaLv01XrFInzCgVX1lGeSVvB5bM7zAASc1T74hrbKDEbAre3Hn_AnXFcrYa2xs0zCpgnVZuPMPRbcldM1__6J5DD9R6XofmbcexZOs3lK6l8dYd4MjzBkAX9KbmlYmwm9uiNtwoT6XDnfiAikA' \
+--data-raw '{
+    "CodigoCliente": "213456",
+    "Nome": "Talk Telecom",
+    "DDD": "11",
+    "Numero": "23910000",
+    "Detalhe": "Info1,Info2,Info3"
+}'
+```
+
+
+## LImpar Campanha
+```javascript
+curl --location --request POST 'http://integracao.epbx.com.br/Service/Api/Campanha/ZerarCampanha?CampanhaId=705' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer vAcyElQYZdRo0CSmb8ksNbo4YNI939h7B8JrS-QvtI51fARvNNspRrqfWhIJ87FBz3c2LvJcjnnehKcNs7QT2shUabIUqlCrC-ltejuAguC3fOerO5KYyhR6SIdw8sza95BE4YXNeiZ2sRitMnDIH_0cnP7-kfXSpVAo5KkxOfQ2BIBmsqYV8HBZ4-uHVKMvmm7pnj249bc__QDVtfkyfIcawGip0tI7xOE534nFZg5MrXVL-Y-VXIVfmR6hw1ggBzxnXZOLbaVh2_wrIjPWLMpxyUfIG9u5PnarFP2A0JD9SBizacx_5IOCXHq2Q7F6tpXKDhJD79sqvoDm20APkuImcpvLtKetSxpA7fluRmMJiHSv_AmVT5oHVDLMeNIQgBxxnPi15V08xpGafcGTSq4LaTp1wOKoP1MbEbv8t4I' \
+--header 'Cookie: OAuthEpbxManagerLocalCookie=UPWp8mh2B2OZa1D46tz5C-s_ymuUvGM28eOj-BLqnrOE-OcS-LYI5NpkN0ZTMo31GmL5jcqnrBs2A14Ap1dmUtAHbVqAMzkBEquCT6DqqslZTyspkryGxtf1xD5lz6mGX7ZZ3RgJ4bMUTFLibFhGdEgnlgyJdz1GXEHw4m7EJRLYjYnfx42ofdlrmycbLqKdaWkTdMKdSxhSKgDcDy71501DqTq_pHzPD6sx8t8QgdqwzHJ0e36bhPfZ-CyT22-yF9_9hjtpizNY71ZMAxQ7wAszsvaLv01XrFInzCgVX1lGeSVvB5bM7zAASc1T74hrbKDEbAre3Hn_AnXFcrYa2xs0zCpgnVZuPMPRbcldM1__6J5DD9R6XofmbcexZOs3lK6l8dYd4MjzBkAX9KbmlYmwm9uiNtwoT6XDnfiAikA' \
+--data-raw '{"CampanhaId":705,"MantemAgendamento":false}'
+```
+
+
+
+## Para importação de Mailing SQL
 ```
 Use EpbxManager
 go
@@ -220,7 +312,7 @@ Go
 
 ```
 
-## Para importação em lote.
+## Para importação em lote SQL
 
 ```
 Declare @Registros CampanhaDiscagemLoteTableParam
